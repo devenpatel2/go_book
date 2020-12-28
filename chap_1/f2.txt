@@ -1,0 +1,5 @@
+dogs 8
+mice 4
+cats 78
+pigs 29
+bird 6

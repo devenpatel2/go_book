@@ -1,0 +1,4 @@
+cats 3
+dogs 8
+mice 4
+pigs 10
