@@ -1,2 +1,2 @@
-# go_book
-Codes from "The Go Programming Language" book.
+# Introduction
+This repo contains codes from "The Go Programming Language" book along with notes. 
