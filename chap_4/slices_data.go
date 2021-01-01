@@ -129,6 +129,34 @@ func main(){
 	// in-build append accepts any number of final arguments
 	x = append(x, x...)    // append slice x
 	fmt.Println(x)         // [1 2 3 4 5 6 1 2 3 4 5 6]
+
+
+	// slices as as stack
+	var stack []int
+
+	for _, v := range x {
+		stack = append(stack, v)        // push v
+		fmt.Printf("Push %d, stack %d\n", v, stack)
+	}
+	
+
+	for i := len(stack); i > 0 ; i-- {
+		top := stack[len(stack) -1 ]      // top of stack
+		stack = stack[:len(stack) - 1]   //shrkink stack
+		fmt.Printf("Pop %d, stack %d\n", top, stack)
+	}
+
+	remove_test := []int{5,6,7,8,9}
+	fmt.Println(remove(remove_test, 2))
+}
+
+
+// remove an element, preserving the order of elements
+// 
+func remove(slice []int, i int) []int {
+	// copy(dst, src)
+	copy(slice[i:], slice[i+1:])  // over writes the slice from i to end with slice from i+1 to end
+	return slice[:len(slice)-1]
 }
 
 
