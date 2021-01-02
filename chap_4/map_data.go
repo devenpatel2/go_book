@@ -98,8 +98,33 @@ func main(){
 	// maps cannot be compared to each other. The only legal comparision is with 'nil'
 	fmt.Println(equal(map[string]int{"A": 0}, map[string]int{"B": 42}))   // false
 	// Go does not have a 'set' type. But a map can server as a set using only keys
+
+	// sometimes it may be necessary to use a slice of string as key. But since keys 
+	// should be comparable, and slices are not, slices hence cannot be used as map keys
+	// a work around can be deviced in two steps
+	// 1 - first we make a helper func to map each slice to a string. This can be achieved using Sprintf
+	// 2 - whenever accessing the map using  a slice as key, this helper func is called to get the 
+	//     slice to string mapping
+	var m = make(map[string]int)
+	var s := "hello world"
+	Add(s[:5], m)
+	Add(s[:5], m)
+	Add(s[6:], m)
+	Add(s[6:], m)
+	fmt.Printf("count %s: %d,\t%s : %d\n", s[:5], Count(s[:5]), s[6:], Count(s[:6]))
+
 }
 
+// map a slice to  string and return the string
+func k(list []string) string { return fmt.Sprintf("%q", list) }
+
+func Add(list []string, m map[string]int) { 
+	m[k(list)]++
+}
+
+func Count(list []string, m map[string]int) int {
+	return m[k(list)]
+}
 
 // function to check if to maps are equal
 func equal(x, y map[string]int) bool {
