@@ -1,2 +1,2 @@
 # Introduction
-This repo contains codes from "The Go Programming Language" book along with notes. 
+This repo contains codes from ["The Go Programming Language"](http://www.gopl.io/) book along with notes. 
