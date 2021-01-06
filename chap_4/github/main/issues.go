@@ -6,7 +6,7 @@ import (
     "fmt"
     "log"
     "os"
-    "github"
+    "../github"
 )
 
 func main(){
@@ -18,8 +18,8 @@ func main(){
     for _, item := range result.Items {
         fmt.Printf("#%-5d %9.9s %.55s\n",
             item.Number, item.User.Login, item.Title)
-	}   
-	
+    }
+}
 
 /* 
 Partial output
