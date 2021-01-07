@@ -37,6 +37,7 @@ func main(){
 // pre is called before the children are visited (preorder) and
 // post is called after (postorder).
 
+// functions can be passed as params with the correct function-type (signature)
 func forEachNode(n *html.Node, pre, post func(n *html.Node)) {
     if pre != nil{
         pre(n)
@@ -54,6 +55,7 @@ func forEachNode(n *html.Node, pre, post func(n *html.Node)) {
 
 var depth int
 
+// pre and post functions for formatting output
 func startElement(n *html.Node){
     if n.Type == html.ElementNode {
         fmt.Printf("%*s<%s>\n", depth*2, "", n.Data)
