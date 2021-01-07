@@ -46,7 +46,9 @@ func findLinks(url string)([]string, error) {
     if resp.StatusCode != http.StatusOK {
         // network and OS resources should be released explicitly. 
         resp.Body.Close()
-        // add context information with error
+		// add context information with error
+		// Errorf formats an error message using fmt.Sprintf and returns a new error value
+		// it helps to build discriptive errors by prefixing additional context information
         return nil, fmt.Errorf("getting %s: %s", url, resp.Status)
     }
 
